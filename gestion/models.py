@@ -26,3 +26,18 @@ class Alumno(models.Model):
         return f"{self.usuario.first_name} {self.usuario.last_name} ({self.matricula})"
     
     
+class Docente(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    cedula = models.CharField(max_length=30)
+    especialidad = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.usuario.first_name} {self.usuario.last_name}"
+    
+    
+class Materia(models.Model):
+    nombre = models.CharField(max_length=100)
+    clave = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return self.nombre
