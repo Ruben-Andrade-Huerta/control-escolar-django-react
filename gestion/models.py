@@ -41,3 +41,14 @@ class Materia(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class GrupoMateria(models.Model):
+    grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
+    materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
+    docente = models.ForeignKey(Docente, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('grupo', 'materia')
+    
+    def __str__(self):
+        return f"{self.grupo} - {self.materia} ({self.docente})"
