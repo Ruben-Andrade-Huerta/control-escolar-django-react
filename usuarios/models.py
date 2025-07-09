@@ -27,32 +27,22 @@ class UsuarioManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class Usuario(AbstractUser):
-    # Opciones de rol disponibles
     ROLES = (
         ('admin', 'Administrador'),
         ('docente', 'Docente'),
         ('alumno', 'Alumno'),
     )
 
-    # Eliminamos el username porque usaremos el correo como identificador
     username = None
     email = models.EmailField(unique=True)
-    
-    # Datos personales
     first_name = models.CharField("Nombre(s)", max_length=100)
     last_name = models.CharField("Apellido(s)", max_length=100)
-
-    # Rol del sistema
     rol = models.CharField(max_length=10, choices=ROLES)
     
-
-    # Indicamos a Django que el campo usado para autenticación será email
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'rol']  # Lo que se pedirá en createsuperuser
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'rol'] 
 
     objects = UsuarioManager()
     
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.rol})"
-    
-    
