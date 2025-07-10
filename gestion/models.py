@@ -14,7 +14,7 @@ class Grupo(models.Model):
     turno = models.CharField(max_length=20, choices=TURNOS)
     
     def __str__(self):
-        return f"{self.nombre} - {self.grado}° {self.turno}"
+        return f"{self.nombre} - {self.grado}° - {self.turno}"
     
     
 class Alumno(models.Model):
@@ -23,7 +23,7 @@ class Alumno(models.Model):
     matricula = models.CharField(max_length=20, unique=True)
 
     def __str__(self):
-        return f"{self.usuario.first_name} {self.usuario.last_name} ({self.matricula})"
+        return f"{self.usuario.first_name} {self.usuario.last_name} - ({self.matricula}) - {self.grupo}"
     
     
 class Docente(models.Model):
@@ -32,7 +32,7 @@ class Docente(models.Model):
     especialidad = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.usuario.first_name} {self.usuario.last_name}"
+        return f"{self.usuario.first_name} {self.usuario.last_name} - {self.especialidad}"
     
     
 class Materia(models.Model):
