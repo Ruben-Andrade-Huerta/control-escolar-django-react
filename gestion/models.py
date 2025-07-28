@@ -12,6 +12,7 @@ class Grupo(models.Model):
     nombre = models.CharField(max_length=50)
     grado = models.PositiveSmallIntegerField() #1 al 6
     turno = models.CharField(max_length=20, choices=TURNOS)
+    is_active = models.BooleanField(default=True)
     
     def __str__(self):
         return f"{self.nombre} - {self.grado}° - {self.turno}"
@@ -38,6 +39,7 @@ class Docente(models.Model):
 class Materia(models.Model):
     nombre = models.CharField(max_length=100)
     clave = models.CharField(max_length=20, unique=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nombre

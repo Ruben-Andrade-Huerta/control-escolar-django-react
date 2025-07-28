@@ -40,6 +40,7 @@ class Usuario(AbstractUser):
     first_name = models.CharField("Nombre(s)", max_length=100)
     last_name = models.CharField("Apellido(s)", max_length=100)
     rol = models.CharField(max_length=10, choices=ROLES)
+    is_active = models.BooleanField(default=True)
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'rol'] 
