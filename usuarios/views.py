@@ -12,9 +12,9 @@ from usuarios.permissions import IsAdminRole, IsDocenteRole, IsAlumnoRole, ReadO
 Usuario = get_user_model()
 
 class UsuarioViewSet(viewsets.ModelViewSet):
-    serializer_class = UsuarioSerializer  # <- usa tu serializer real
+    serializer_class = UsuarioSerializer  
     queryset = Usuario.objects.all()
-    permission_classes = [IsAuthenticated]  # base
+    permission_classes = [IsAuthenticated]  
 
     def get_permissions(self):
         # Admin: todo. Docente/Alumno: solo lectura; y edición SOLO de sí mismos.
@@ -55,7 +55,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         # Bloqueos básicos (ajusta a tus relaciones reales):
         # Si existe un Alumno/Docente ligado o registros derivados, no permitir eliminar.
-        from gestion.models import Alumno, Docente, GrupoMateria  # evita import circular ubicando esto aquí
+        from gestion.models import Alumno, Docente, GrupoMateria  # evita importaciones circulares con esto aquí
         tiene_alumno = Alumno.objects.filter(usuario=instance).exists()
         tiene_docente = Docente.objects.filter(usuario=instance).exists()
         if tiene_alumno or tiene_docente:
