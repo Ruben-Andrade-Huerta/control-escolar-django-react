@@ -33,6 +33,12 @@ class Alumno(models.Model):
     grupo = models.ForeignKey(Grupo, on_delete=models.SET_NULL, null=True, blank=True)
     matricula = models.CharField(max_length=20, unique=True)
 
+    def clean(self):
+        super().clean()
+        if getattr(self.usuario, 'rol', None) != 'alumno':
+            from django.core.exceptions import ValidationError
+            raise ValidationError('Solo se pueden dar de alta usuarios con rol alumno como Alumno.')
+
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name} - ({self.matricula}) - {self.grupo}"
     
@@ -41,6 +47,12 @@ class Docente(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     cedula = models.CharField(max_length=30)
     especialidad = models.CharField(max_length=100)
+
+    def clean(self):
+        super().clean()
+        if getattr(self.usuario, 'rol', None) != 'docente':
+            from django.core.exceptions import ValidationError
+            raise ValidationError('Solo se pueden dar de alta usuarios con rol docente como Docente.')
 
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name} - {self.especialidad}"
