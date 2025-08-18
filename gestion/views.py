@@ -163,8 +163,13 @@ class DocenteView(viewsets.ModelViewSet):
         user = self.request.user
         if getattr(user, 'rol', None) == 'admin':
             return Docente.objects.all()
-        # Docente/Alumno no pueden listar (bloqueado en get_permissions)
+        # Permitir que el docente vea su propio objeto para retrieve
+        docente = _get_docente_from_user(user)
+        if docente:
+            return Docente.objects.filter(pk=docente.pk)
         return Docente.objects.none()
+        # # Docente/Alumno no pueden listar (bloqueado en get_permissions)
+        # return Docente.objects.none()
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()

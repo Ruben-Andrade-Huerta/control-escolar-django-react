@@ -58,6 +58,7 @@ class GrupoMateria(models.Model):
     grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
     docente = models.ForeignKey(Docente, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
     
     class Meta:
         unique_together = ('grupo', 'materia')
