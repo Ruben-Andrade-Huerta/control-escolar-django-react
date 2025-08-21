@@ -43,10 +43,18 @@ class Alumno(models.Model):
         return f"{self.usuario.first_name} {self.usuario.last_name} - ({self.matricula}) - {self.grupo}"
     
     
+class Especialidad(models.Model):
+    materia = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.materia
+    
+    
+    
 class Docente(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     cedula = models.CharField(max_length=30)
-    especialidad = models.CharField(max_length=100)
+    especialidades = models.ManyToManyField(Especialidad)
 
     def clean(self):
         super().clean()
@@ -55,7 +63,8 @@ class Docente(models.Model):
             raise ValidationError('Solo se pueden dar de alta usuarios con rol docente como Docente.')
 
     def __str__(self):
-        return f"{self.usuario.first_name} {self.usuario.last_name} - {self.especialidad}"
+        especialidades = ", ".join([e.materia for e in self.especialidades.all()])
+        return f"{self.usuario.first_name} {self.usuario.last_name} - {especialidades}"
     
     
 class Materia(models.Model):

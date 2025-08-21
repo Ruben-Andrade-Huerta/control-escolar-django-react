@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Alumno, Docente, Grupo, GrupoMateria, Materia
+from .models import Alumno, Docente, Grupo, GrupoMateria, Materia, Especialidad
 from usuarios.models import Usuario
 from django import forms
 
@@ -18,6 +18,7 @@ class AlumnoAdmin(admin.ModelAdmin):
 
 @admin.register(Docente)
 class DocenteAdmin(admin.ModelAdmin):
+    readonly_fields = ('usuario',)
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "usuario":
             kwargs["queryset"] = (
@@ -33,3 +34,4 @@ class DocenteAdmin(admin.ModelAdmin):
 admin.site.register(Grupo)
 admin.site.register(GrupoMateria)
 admin.site.register(Materia)
+admin.site.register(Especialidad)
