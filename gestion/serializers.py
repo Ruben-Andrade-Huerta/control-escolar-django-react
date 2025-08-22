@@ -14,7 +14,7 @@ class MateriaSerializer(serializers.ModelSerializer):
 class DocenteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Docente
-        fields = ['usuario', 'cedula', 'especialidad']
+        fields = ['usuario', 'cedula', 'especialidades']
         
 class AlumnoSerializer(serializers.ModelSerializer):
     class Meta:
