@@ -65,7 +65,7 @@ class Docente(models.Model):
     def __str__(self):
         especialidades = ", ".join([e.materia for e in self.especialidades.all()])
         return f"{self.usuario.first_name} {self.usuario.last_name} - {especialidades}"
-    
+     
     
 class Materia(models.Model):
     nombre = models.CharField(max_length=100)
