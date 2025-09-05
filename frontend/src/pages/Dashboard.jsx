@@ -1,2 +1,2 @@
-const Dashboard = () => <div>Dashboard pendiente</div>;
+const Dashboard = () => <div>Pagina principal de Dashboard</div>;
 export default Dashboard;
