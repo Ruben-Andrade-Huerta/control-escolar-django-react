@@ -85,8 +85,8 @@ DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'control_escolar',
-        'USER': 'rubenandrade',  # Replace with your database user
-        'PASSWORD': 'nueva_contraseña',  # Replace with your database password
+        'USER': 'rubsa',  # Replace with your database user
+        'PASSWORD': '1234',  # Replace with your database password
         'HOST': 'localhost',  # Replace with your database host
         'PORT': '5432',  # Replace with your database port
     }
@@ -136,6 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Cors authorization
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
 ]
 
 #Simplejwt
