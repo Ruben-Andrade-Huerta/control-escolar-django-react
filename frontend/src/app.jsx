@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './auth/authProvider';
 import PrivateRoute from './routes/PrivateRoute';
 import {Login} from './pages/Login'
-import Dashboard from './pages/Dashboard';
+import {Dashboard} from './pages/Dashboard';
 
 function App() {
   return (

@@ -24,7 +24,7 @@ class DocenteAdmin(admin.ModelAdmin):
             kwargs["queryset"] = (
                 Usuario.objects
                 .filter(rol="docente")
-                .filter(docente__isnull=True)  # quita esta línea si no es OneToOne/único
+                #.filter(docente__isnull=True)  # quita esta línea si no es OneToOne/único
             )
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
