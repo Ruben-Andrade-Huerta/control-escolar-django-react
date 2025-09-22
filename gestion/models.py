@@ -31,7 +31,7 @@ class Grupo(models.Model):
 class Alumno(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     grupo = models.ForeignKey(Grupo, on_delete=models.SET_NULL, null=True, blank=True)
-    matricula = models.CharField(max_length=20, unique=True)
+    matricula = models.CharField(max_length=20, unique=True, db_index=True)
 
     def clean(self):
         super().clean()
@@ -44,7 +44,7 @@ class Alumno(models.Model):
     
     
 class Especialidad(models.Model):
-    materia = models.CharField(max_length=100)
+    materia = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.materia
@@ -52,9 +52,13 @@ class Especialidad(models.Model):
     
     
 class Docente(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    cedula = models.CharField(max_length=30)
-    especialidades = models.ManyToManyField(Especialidad)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name="perfil_docente")
+    cedula = models.CharField(max_length=30, unique=True, db_index=True)
+    especialidades = models.ManyToManyField(
+        Especialidad,
+        related_name="docentes",
+        blank=True,
+    )
 
     def clean(self):
         super().clean()
