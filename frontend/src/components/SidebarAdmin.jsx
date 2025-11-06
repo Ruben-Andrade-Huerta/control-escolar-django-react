@@ -1,11 +1,21 @@
-import { UsersIcon, UserGroupIcon, BookOpenIcon, AcademicCapIcon, CalendarIcon, DocumentChartBarIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { UsersIcon, UserGroupIcon, BookOpenIcon, AcademicCapIcon, CalendarIcon, DocumentChartBarIcon, HomeIcon, ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/outline';
+import { logout } from '../auth/authService';
+import { useNavigate } from 'react-router-dom';
 
 export function SidebarAdmin(){
+
+    const navigate = useNavigate();
+
+    const handleLogout = () =>{
+        logout();
+        navigate('/login');
+    }
+
     return(
         <nav className="fixed top-0 left-0 h-screen w-32 m-0 flex flex-col bg-blue-950 text-white">
            <ul>
                 <li>
-                    <HomeIcon class="h-6 w-6 inline mr-2 text-white" />
+                    <HomeIcon className="h-6 w-6 inline mr-2 text-white" />
                     Inicio
                 </li>
                 <li>
@@ -17,7 +27,7 @@ export function SidebarAdmin(){
                     Grupos
                 </li>
                 <li>
-                    <BookOpenIcon class="h-6 w-6 inline mr-2 text-white" />
+                    <BookOpenIcon className="h-6 w-6 inline mr-2 text-white" />
                     Materias
                 </li>
                 <li>
@@ -25,12 +35,16 @@ export function SidebarAdmin(){
                     Evaluaciones
                 </li>
                 <li>
-                    <CalendarIcon class="h-6 w-6 inline mr-2 text-white" />
+                    <CalendarIcon className="h-6 w-6 inline mr-2 text-white" />
                     Asistencias
                 </li>
                 <li>
-                    <DocumentChartBarIcon class="h-6 w-6 inline mr-2 text-white" />
+                    <DocumentChartBarIcon className="h-6 w-6 inline mr-2 text-white" />
                     Reportes
+                </li>
+                <li>
+                    <ArrowLeftStartOnRectangleIcon className="h-6 w-6 inline mr-2 text-white" />
+                    <button onClick={handleLogout}>Cerrar sesion</button>
                 </li>
             </ul>
         </nav>
