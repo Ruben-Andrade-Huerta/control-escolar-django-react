@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Grupo, Materia, Docente, Alumno, GrupoMateria
+from usuarios.serializers import UsuarioSerializer
 
 class GrupoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,9 +18,12 @@ class DocenteSerializer(serializers.ModelSerializer):
         fields = ['usuario', 'cedula', 'especialidades']
         
 class AlumnoSerializer(serializers.ModelSerializer):
+
+    usuario = UsuarioSerializer()
+
     class Meta:
         model = Alumno
-        fields = ['usuario', 'grupo', 'matricula']
+        fields = ['id', 'usuario', 'grupo', 'matricula']
         
 class GrupoMateriaSerializer(serializers.ModelSerializer):
     class Meta:

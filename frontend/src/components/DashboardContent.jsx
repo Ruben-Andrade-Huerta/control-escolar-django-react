@@ -14,11 +14,11 @@ export function DashboardContent(){
     }, []);
 
     return(
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
             <h1>Alumnos</h1>
             {alumnos.map((alumno, index) => (
                 <div key={index}>
-                    <p>Nombre: {alumno.nombre}</p>
+                    <p>Nombre: {alumno.usuario.first_name}</p>
                     <p>Matricula: {alumno.matricula}</p>
                 </div>
             ))
