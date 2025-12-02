@@ -12,7 +12,7 @@ export function SidebarAdmin(){
     }
 
     return(
-        <nav className="fixed top-0 left-0 h-screen w-32 m-0 flex flex-col bg-blue-950 text-white">
+        <nav className="fixed top-0 left-0 h-screen w-35 m-0 flex flex-col bg-blue-950 text-white">
            <ul>
                 <li>
                     <HomeIcon className="h-6 w-6 inline mr-2 text-white" />
