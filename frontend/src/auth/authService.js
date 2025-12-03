@@ -1,6 +1,7 @@
 import api from '../api/axios';
 
 // Claves de almacenamiento namespaced
+
 const LS_TOKEN = 'auth:token';
 const LS_REFRESH = 'auth:refresh';
 
