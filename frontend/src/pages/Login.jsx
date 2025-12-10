@@ -50,7 +50,7 @@ export function Login() {
           <div>
             <button 
               type='submit'
-              className="w-full rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+              className="w-full rounded-full bg-primary-ccv hover:bg-blue-700 active:bg-blue-800
                        text-white font-medium py-3 transition focus:outline-none
                        focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >Login</button>
