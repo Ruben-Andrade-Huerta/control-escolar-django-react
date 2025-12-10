@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
-@theme{
-    --color-primary: #fff,
+@theme {
+
+    /* Paleta de colores */
+
+    --color-primary-ccv: #2563EB;
+
+    /* Spacing */
+    --spacing-sidebar-w: 11rem;  
 }
