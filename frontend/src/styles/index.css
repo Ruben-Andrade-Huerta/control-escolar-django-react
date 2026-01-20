@@ -9,3 +9,9 @@
     /* Spacing */
     --spacing-sidebar-w: 11rem;  
 }
+
+:root {
+    --navbar-height: 4.5rem;
+    --sidebar-width: 15rem; 
+    --content-width: calc(100vw - var(--sidebar-width))
+}

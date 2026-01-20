@@ -1,4 +1,7 @@
-import { ArrowLeftStartOnRectangleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowLeftStartOnRectangleIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 import { logout } from "../../auth/authService";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
@@ -15,24 +18,31 @@ export function NavbarAdmin() {
   };
 
   useEffect(() => {
-    function handleClickOutside(event){
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)){
-            setOpen(false);
-        }
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
     }
-    if(open){
-        document.addEventListener("mousedown", handleClickOutside);
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-        document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-    }
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [open]);
 
   return (
     <div>
-      <nav className="h-15 w-full bg-blue-800 p-4 flex justify-end">
+      <nav style={{ height: "var(--navbar-height)"}} className="fixed top-0 left-0 w-full bg-blue-800 p-4 flex justify-between">
+        {/* <nav className="fixed top-0 left-0 w-full h-[var(--navbar-height)]"> */}
+        <div className="flex items-center">
+          {/* <li className="flex items-center pl-2">
+            <img src="/logos/ccv_logo.jpg" className="h-12 w-12 pt-1" />
+          </li> */}
+          <img src="/logos/ccv_logo.jpg" className="h-12 w-12 pt-1" />
+        </div>
         <div ref={dropdownRef} className="relative flex items-center">
           <h2 className="text-base text-white">School Admin</h2>
           <button

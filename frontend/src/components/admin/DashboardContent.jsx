@@ -36,11 +36,8 @@ export function DashboardContent() {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1>Panel de control</h1>
-      </div>
-      <div className="flex justify-center space-x-6">
+    <div style={{ top: "var(--navbar-height)", left:"var(--sidebar-width)" , width:"var(--content-width)"}} className="fixed mt-10">
+      <div className="flex space-x-6 justify-center">
         <div className="bg-gray-200 p-4 text-center rounded-2xl shadow w-54">
           <h1>Total de alumnos</h1>
           <p>{alumnos}</p>
