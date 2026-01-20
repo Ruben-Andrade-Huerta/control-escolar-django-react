@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './auth/authProvider';
 import PrivateRoute from './routes/PrivateRoute';
 import {Login} from './pages/Login'
-import {Dashboard} from './pages/DashboardAdmin';
+import { DashboardAdmin } from "./pages/admin/DashboardAdmin";
+import {UsuariosAdmin} from './pages/admin/UsuariosAdmin'
 
 function App() {
   return (
@@ -12,13 +13,18 @@ function App() {
         <Routes>
           <Route path='/' element={<Navigate to='/login'/>}/>
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={
+          <Route path="/dashboard-admin" element={
               <PrivateRoute>
-                <Dashboard />
+                <DashboardAdmin />
               </PrivateRoute>
             }
           />
-          {/* Otras rutas */}
+          <Route path='usuarios-admin' element={
+              <PrivateRoute>
+                <UsuariosAdmin />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

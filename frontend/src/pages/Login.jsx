@@ -1,13 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../auth/authProvider';
-import { useNavigate } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 
 export function Login() {
 
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const userData = (data) => {
-    console.log(data)
-  }
+  const userData = data
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -15,7 +13,7 @@ export function Login() {
     try {
       userData(data); // Llama a userData con los datos del formulario
       await login(data.email, data.password); // Llama a la función de login del contexto
-      navigate('/dashboard'); // Redirige a dashboard
+      navigate('/dashboard-admin'); // Redirige a dashboard
     } catch (error) {
       // Muestra mensaje de error aquí
     }
