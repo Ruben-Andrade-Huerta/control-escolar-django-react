@@ -1,17 +1,94 @@
 @import "tailwindcss";
 
 @theme {
+  /* ─── COLORES ─────────────────────────────────────── */
 
-    /* Paleta de colores */
+  /* Primario y acento */
+  --color-primary-ccv:      #1a3a6b;
+  --color-accent-ccv:       #C0392B;
 
-    --color-primary-ccv: #2563EB;
+  /* Fondos */
+  --color-bg-ccv:           #f4f6fa;
+  --color-surface-ccv:      #ffffff;
 
-    /* Spacing */
-    --spacing-sidebar-w: 11rem;  
+  /* Bordes */
+  --color-border-ccv:       #e0e4ed;
+
+  /* Texto */
+  --color-text-ccv:         #1a1a2e;
+  --color-muted-ccv:        #888888;
+  --color-hover-ccv:        #f7f9fc;
+
+  /* Semafórico */
+  --color-success-ccv:      #0F6E56;
+  --color-warning-ccv:      #854F0B;
+  --color-danger-ccv:       #A32D2D;
+
+  /* Semafórico - fondos suaves */
+  --color-success-bg-ccv:   #E1F5EE;
+  --color-warning-bg-ccv:   #FAEEDA;
+  --color-danger-bg-ccv:    #FCEBEB;
+  --color-info-bg-ccv:      #E6F1FB;
+
+  /* Semafórico - bordes */
+  --color-success-border-ccv: #9FE1CB;
+  --color-warning-border-ccv: #FAC775;
+  --color-danger-border-ccv:  #f5c0b8;
+  --color-info-border-ccv:    #B5D4F4;
+
+  /* Sidebars por rol */
+  --color-sidebar-admin-ccv:   #1a3a6b;
+  --color-sidebar-docente-ccv: #1e2a3a;
+  --color-sidebar-alumno-ccv:  #0f1e30;
+
+  /* Badge de alumno */
+  --color-badge-alumno-ccv:    #4E9EE7;
+
+  /* ─── ESPACIADO / TAMAÑOS ─────────────────────────── */
+
+  /* Anchos de sidebar por rol */
+  --spacing-sidebar-admin:   230px;
+  --spacing-sidebar-docente: 220px;
+  --spacing-sidebar-alumno:  210px;
+
+  /* Altura del topbar */
+  --spacing-topbar-h:        56px;
+
+  /* Anchos máximos de modales */
+  --spacing-modal-sm:        420px;
+  --spacing-modal-md:        480px;
+  --spacing-modal-lg:        520px;
+
+  /* ─── BORDES REDONDEADOS ──────────────────────────── */
+  --radius-tag:     6px;   /* tags, tipo-pills */
+  --radius-input:   8px;   /* inputs, selects, filtros */
+  --radius-btn:     8px;   /* botones */
+  --radius-card:    12px;  /* cards, table-card */
+  --radius-modal:   14px;  /* modales */
+  --radius-badge:   20px;  /* estado badges redondos */
+
+  /* ─── SOMBRAS ─────────────────────────────────────── */
+  --shadow-card:  0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-login: 0 4px 24px rgba(0, 0, 0, 0.06);
+
+  /* ─── TIPOGRAFÍA ──────────────────────────────────── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* ─── VARIABLES CSS NATIVAS ────────────────────────────
+   Para cosas que Tailwind no expone directamente,
+   como calc() en layout o valores en JS.
+──────────────────────────────────────────────────── */
 :root {
-    --navbar-height: 4.5rem;
-    --sidebar-width: 15rem; 
-    --content-width: calc(100vw - var(--sidebar-width))
+  --topbar-height:   56px;
+
+  --sidebar-admin:   230px;
+  --sidebar-docente: 220px;
+  --sidebar-alumno:  210px;
+
+  /* Ancho del área de contenido según rol activo */
+  --content-admin:   calc(100vw - var(--sidebar-admin));
+  --content-docente: calc(100vw - var(--sidebar-docente));
+  --content-alumno:  calc(100vw - var(--sidebar-alumno));
 }

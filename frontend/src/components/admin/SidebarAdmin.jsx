@@ -6,7 +6,7 @@ export function SidebarAdmin() {
   const navigate = useNavigate();
 
   return (
-    <aside style={{ width: "var(--sidebar-width)" ,  top: "var(--navbar-height)"}} className="fixed left-0 h-screen m-0 flex flex-col bg-blue-800 text-white items-center">
+    <aside style={{ width: "var(--sidebar-width)" ,  top: "var(--navbar-height)"}} className="fixed left-0 h-screen m-0 flex flex-col bg-blue-800 text-white pl-4">
     {/* // <aside className="fixed left-0 top-[var(--navbar-height)] h-full w-[var(--sidebar-width)]"> */}
       <ul className="w-40 space-y-3">
         <li onClick={() => navigate("/dashboard-admin")} className="h-8 flex items-center pl-2 cursor-pointer hover:bg-blue-600/50 rounded-b-sm">
