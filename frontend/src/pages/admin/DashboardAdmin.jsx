@@ -6,8 +6,8 @@ export function DashboardAdmin() {
     return(
         <div className="bg blue-">
             <SidebarAdmin/>
-            <NavbarAdmin/>
-            <DashboardContent/>
+            {/* <NavbarAdmin/>
+            <DashboardContent/> */}
         </div>
     )
 }
