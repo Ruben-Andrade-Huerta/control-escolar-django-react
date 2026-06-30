@@ -76,9 +76,6 @@
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ─── VARIABLES CSS NATIVAS ────────────────────────────
-   Para cosas que Tailwind no expone directamente,
-   como calc() en layout o valores en JS.
 ──────────────────────────────────────────────────── */
 :root {
   --topbar-height:   56px;
