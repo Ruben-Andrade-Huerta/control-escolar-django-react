@@ -4,10 +4,13 @@ import { NavbarAdmin } from '../../components/admin/NavbarAdmin'
 
 export function DashboardAdmin() {
     return(
-        <div className="bg blue-">
+        <div className="flex h-screen">
             <SidebarAdmin/>
-            {/* <NavbarAdmin/>
-            <DashboardContent/> */}
+            <div className="flex flex-col flex-1">
+                <NavbarAdmin/>
+                <DashboardContent/>
+                {/* <FooterAdmin/> */}
+            </div>
         </div>
     )
 }
