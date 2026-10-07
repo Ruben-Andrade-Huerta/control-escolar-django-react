@@ -88,7 +88,7 @@ DATABASES = {
         'USER': 'rubsa',  # Replace with your database user
         'PASSWORD': '1234',  # Replace with your database password
         'HOST': 'localhost',  # Replace with your database host
-        'PORT': '5432',  # Replace with your database port
+        'PORT': '5433',  # Replace with your database port
     }
 }
 
